@@ -15,17 +15,17 @@ public class Task {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int id;
+    public int id;
 
     @Column(nullable = false)
-    private String task;
+    public String task;
 
     @Column(nullable = true)
-    private String details;
+    public String details;
 
     @Column(nullable = true)
-    private String dueDate;
+    public String dueDate;
 
     @Column(nullable = false)
-    private boolean taskComplete;
+    public boolean taskComplete;
 }
