@@ -4,28 +4,36 @@ import jakarta.persistence.Column;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import lombok.Builder;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Getter
 @Setter
-@Builder
+@NoArgsConstructor
 public class Task {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    public int id;
+    private int id;
 
     @Column(nullable = false)
-    public String task;
+    private String task;
 
     @Column(nullable = true)
-    public String details;
+    private String details;
 
     @Column(nullable = true)
-    public String dueDate;
+    private String dueDate;
 
     @Column(nullable = false)
-    public boolean taskComplete;
+    private boolean taskComplete;
+
+    public Task(int i, String task, String details, String dueDate, boolean taskComplete) {
+        this.task = task;
+        this.details = details;
+        this.dueDate = dueDate;
+        this.taskComplete = taskComplete;
+
+    }
 }
