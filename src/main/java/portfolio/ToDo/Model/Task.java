@@ -29,11 +29,28 @@ public class Task {
     @Column(nullable = false)
     private boolean taskComplete;
 
-    public Task(int i, String task, String details, String dueDate, boolean taskComplete) {
+    public Task(String task, String details, String dueDate, boolean taskComplete) {
         this.task = task;
         this.details = details;
         this.dueDate = dueDate;
         this.taskComplete = taskComplete;
+
+    }
+
+    public Task(String task, String details, String dueDate) {
+        this.task = task;
+        this.details = details;
+        this.dueDate = dueDate;
+        this.taskComplete = false;
+
+    }
+
+    public Task(int id, String task, String details, String dueDate) {
+        this.id = id;
+        this.task = task;
+        this.details = details;
+        this.dueDate = dueDate;
+        this.taskComplete = false;
 
     }
 }

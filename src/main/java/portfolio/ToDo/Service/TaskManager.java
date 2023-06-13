@@ -23,6 +23,20 @@ public class TaskManager {
         System.out.println("Task added successfully.");
   }
 
+  public Task getTaskById(int id) {
+        for (Task task : tasks) {
+            if (task.getId() == id) {
+                return task;
+            }
+        }
+
+      try {
+          throw new Exception("TASK NOT FOUND");
+      } catch (Exception e) {
+          throw new RuntimeException(e);
+      }
+  }
+
   public void deleteTask(int taskId){
         if (taskId >= 0 && taskId < tasks.size()){
             tasks.remove(taskId);
@@ -44,8 +58,9 @@ public class TaskManager {
   }
 
   public void markTaskComplete(int taskId){
-        if (taskId >= 0 && taskId < tasks.size()){
-            Task task = tasks.get(taskId);
+        Task task = getTaskById(taskId);
+
+        if (!task.isTaskComplete()) {
             task.setTaskComplete(true);
             System.out.println("Task completed.");
         }
